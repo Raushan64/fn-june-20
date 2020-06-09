@@ -1,0 +1,244 @@
+Finishing School
+-----------------
+	Week 1 = Core Java, Collection, thread, concurrent api, exceptions, IO, java8, 
+
+	Week 2 = Spring framework, core, mvc, data jpa, data rest, boot
+
+	Week 3 = microservice, preparations
+
+
+
+	Java	= Programming language
+		  Runtime Environement
+		  Library (collection of various programs)
+
+	JVM
+	  - responsible to execute / run java code
+
+	JRE
+	  - JVM + Libraries (util, lang, ....)
+
+	JDK 
+	   JRE + dev tools (javac, jar, debugger... )
+
+	JAVA 7, 8, 9, 10, .....
+
+	Create a java program
+	---------------------------
+
+		public class Helloworld {
+			public static void main(String[] args){
+			   System.out.println("Helloworld!.. Welcome to java");
+			}
+		}
+
+
+	Java Features
+	
+	Compare java with C# / Python / JavaScript/ C & C++
+
+	Types of applications you can build using java
+		- Desktop 
+		- Enterprise applications
+		- application build for the cloud
+		- Android
+
+
+	Java SE (Standard Edition)
+		- standard libraries 
+		- collection, io, util, etc. 
+
+	Java EE (Enterprise Edition)
+		|
+		|->Component based technologies 
+		|	|->Web components 
+		|	|	|-> Servlet, JSP, JSTL
+		|	|->Distributed components
+		|	|	|-> EJB
+		|
+		|->Service based technologies 
+		|	|-> JMS, java mail, JNDI, JTA, JAAS, JCA
+		|
+		|->Protocol based technologies
+
+	Java ME (Micro Edition)
+
+
+
+
+
+	Language		Library/API/packages			Framework
+
+	C & C++			....					
+	Python			....					Dgango
+	C#			.....					.Net
+	JavaScript		JQuery, Bootstrap, React		Angular
+
+	Java			Collection, io, util, 			Spring
+				jdbc
+
+
+	Programming 		simplifies				standardize				
+	capabilities 		tasks					process
+
+
+	**Spring 
+	   - framework
+
+	**Spring Core/ MVC / Boot / Data Jpa / Data REST/ Security, etc....
+	   - Modules
+
+
+	Memory 
+
+	Internals of JVM
+
+	Implement OOPS concepts in Java Project
+
+	Design Pattern
+
+	Overview on frontend 
+
+
+	Collection
+	---------------------------------
+			   Iterable<T>
+			     |
+			Collection<T> (I)		<<--describes common methods 					
+			     |							
+	----------------------------------------------------------------		   
+	List<T> (I)		Set<T> (i)			Queue<T> (i)
+	  |			  |
+       	ArrayList<T>		HashSet
+   	LinkedList<T>		LinkedHashSet
+	Vector<T>		TreeSet
+	Stack<T>
+
+
+
+
+	Map (i)
+
+
+	Collection<T>  Interface methods
+	------------------------------------
+		boolean add(Object obj)
+		boolean addAll(Collection col)
+		boolean remove(Object obj)
+		boolean removeAll(object obj)
+		void clear()
+		boolean contains(Object obj)
+		Iterator iterator()
+		boolean isEmpty()
+		int size()
+		
+	List<T> interface
+	-------------------------
+		boolean add(T obj, int index)
+		boolean addAll(int index, Collection col)
+		T get(int index)
+		ListIterator listIterator()
+		List subList(int form, int to)
+
+	List Implementation classes
+	--------------------------------
+
+					Collection
+					    |
+					  List
+					    |
+					AbstractList <abstract class>
+					    |
+				----------------------------------------------------
+				ArrayList<T>	Vector<T>		LinkedList<T>
+						  |
+						Stack<T>
+
+
+			
+		ArrayList		LinkedList		Vector		Stack
+DS		Array			double-linkedlist	Array		Array
+
+duplicate	allowed			allowed			allowed		allowed
+
+nullvalues	allowed			allowed			allowed		allowed
+
+synchronized	no			no			yes		yes
+
+initial
+capacity	1			NA			10		10
+
+
+
+
+
+
+	int new = (oldcap*3)/2+1
+
+
+	Synchronized lists
+	--------------------------
+		List<Integer> list = new ArrayList<>();
+		List list1 = Collections.synchronizedList(list);
+
+		** locks whole list for thread-safety 
+
+
+	CopyOnWriteArrayList (java.util.concurrent)
+	----------------------------------------------
+		** locks the list during write operations 
+		** multiple threads can perform read operations concurrently 	
+
+
+	Collections class
+	-----------------------
+		- java.util package 
+		- it is utility class provides some method to manipulate over group of objects
+			sort()
+			...
+			...
+
+	Sorting list
+	---------------------
+
+		** the elements of the list must be Comparable or an external comparator should be provided
+
+		Collections.sort(list)
+		Collections.sort(list, Comparator);
+
+
+	Preserve the equality contract when overriding equals()
+	-------------------------------------------------------------
+		1. reflexive  	i.e. x.equals(x) must be true
+		2. symmetric 	i.e. x.equals(y) returns true, if and only y.equals(x)returns true 
+		3. transitive	i.e. x.equals(y) returns true and y.equals(z) returns true then x.equals(z) must also return 				true
+		4. consistent	
+		5. for any non-null ref value it must return false
+			x.equals(null)	return false 
+
+
+	default implementation of equals() method in object class
+	------------------------------------------------------------
+
+
+	int hashCode()
+	----------------
+		- objects that are equal to each other, must return same hash code
+		- unequal objects may has same hashCode
+
+	Java Beans
+	--------------
+
+
+	Spring Beans
+	---------------
+	
+
+
+
+
+
+
+
+
+

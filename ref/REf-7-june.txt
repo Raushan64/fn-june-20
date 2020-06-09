@@ -1,0 +1,231 @@
+Finishing School
+-----------------
+	Week 1 = Core Java, Collection, thread, concurrent api, exceptions, IO, java8, 
+
+	Memory 
+
+	Internals of JVM
+
+	Implement OOPS concepts in Java Project
+
+	Design Pattern
+
+	Overview on frontend 
+
+
+	Collection
+	---------------------------------
+			   Iterable<T>
+			     |
+			Collection<T> (I)		<<--describes common methods 					
+			     |							
+	----------------------------------------------------------------		   
+	List<T> (I)		Set<T> (i)			Queue<T> (i)
+	  |			  |
+       	ArrayList<T>		HashSet
+   	LinkedList<T>		LinkedHashSet
+	Vector<T>		TreeSet
+	Stack<T>
+
+
+	Collection<T>  Interface methods
+	------------------------------------
+		boolean add(Object obj)
+		boolean addAll(Collection col)
+		boolean remove(Object obj)
+		boolean removeAll(object obj)
+		void clear()
+		boolean contains(Object obj)
+		Iterator iterator()
+		boolean isEmpty()
+		int size()
+		
+	Set<T> interface
+	-------------------------
+		- models a collection of objects to store unique elements 
+
+					     Collection<E> Interface
+						 |
+						Set<E> Interface
+						 |
+				--------------------------------------
+				AbstractSet			SortedSet<E>  Interface
+				   |				     |
+			---------------------------		NavigableSet<E> Interface
+			HashSet       CopyOnWriteArraySet	     |
+			   |	      (java.util.concurrent)	TreeSet<E>
+			LinkedHashSet
+
+
+	Set Implementation classes
+	--------------------------------
+
+				HashSet			LinkedHashSet				TreeSet 
+
+	Data Structure		hashtable		HashTable+double linkedlist		BalancedTree
+	null values		yes			yes					yes
+	Duplicates		no			no					no
+	synchronized		no			no					no
+	initial capacity	16			16					NA
+	ordering		unordered		ordered by insertion			sorted order
+
+
+	**=> ensure the equals() and hashCode() method must be overridden 
+
+	Synchronized sets
+	------------------------
+		1. Collections.synchronizedSet(set)
+
+		2. CopyOnWriteArraySet class 
+
+	Comparable and Comparator
+	----------------------------
+
+		Comparable<E> interface
+			- int compareTo(E e)
+
+		Comparator<E> interface 
+			- to create external comparators 
+			- int compare(E e1, E e2)
+
+		
+			the compare()/compareTo() methods return a "CompareValue"
+
+				0 	= both objects are same 
+				> 1	= the current object is greater than the other object 
+				< 1	= the current object is less than the other object 
+
+
+
+		class Employee implements Comparable<Employee>{
+
+			//override compareTo() method
+		}
+
+		SortedSet<Employee> empSet = new TreeSet<>();		
+
+
+
+		class EmpSalComparator implements Comparator<Employee>{
+			//override compare(E e1, E e2)
+		}
+
+		SortedSet<Employee> empSet = new TreeSet<>(new EmpSalComparator());	
+
+		empSet.add(new Employee(xxxxxx));	//hashCode()  --> equals() ---> compareXXXX()
+		
+
+		Set<String> namesSet = new TreeSet<>();
+		
+		namesSet.add("Ram");
+		namesSet("Ram");	-->hashCode() ---> equals()--->return false
+		namesSet.add("Jay");	-->hashCode() ---> equals()-->returns true --> compare() 
+		namesSet.add("Ravichandran");
+		namesSet.add("Ajay");
+		namesSet.add("Bob");
+		namesSet.add("Ravi");
+		namesSet.add("askfjdlsjfldksfjdlsfj");	
+
+
+	Queue<E> 
+	------------------------	
+
+					Collection<E>
+					    |
+					Queue<E> interface
+					    |
+			-------------------------------------------------------------
+			Deque<E>		BlockingQueue<E> 		AbstractQueue
+			interface 		interface			(abstract class)
+			   |			   |					|
+	-------------------------------		   |				---------------------------------------
+	BlockingDeque<E> 	ArrayDeque<E>	   |				PriorityQueue<E>   	DelayQueue    
+ 	interface 		class		   |				class
+						   |
+					   -----------------------------
+					    ArrayBlockQueue<E>	   PriorityBlockingQueue<E>
+					    class		   class
+
+	Implementations of Queue
+	-------------------------------
+
+	   General purpose queues 
+	   -----------------------------
+
+		LinkedList
+
+		PriorityQueue<E>
+
+		ArrayDeque<E>
+
+
+	   Concurrent queues
+	   ------------------------- 
+		ArrayBlockingQueue<E>
+
+		PriorityBlockingQueue<E>
+
+		DelayQueue<E>
+
+
+
+	 Operations on the queue
+	 -----------------------------
+
+		insert operation
+
+		remove operation
+
+		examine operation
+
+
+	Queue Interface
+	---------------------------
+				(throws exceptions)		
+		insert		add(e)				offer(e)
+
+		remove		remove()			poll()
+
+		examine		element()			peek()
+		
+
+	Deque interface
+	--------------------
+				(throws exceptions)		
+		insert		add(e)				offer(e)
+				addFirst(e)			offerFirst(e)
+				addLast(e)			offerLast(e)
+
+		remove		remove()			poll()
+				removeFirst()			pollFirst()
+				removeLast()			pollLast()
+
+		examine		element()			peek()
+				getFirst()			peekFirst()
+				getLast()			peekLast()
+
+
+	BlockingQueue
+	-------------------
+				(throws exceptions)		
+		insert		add(e)				offer(e)	put(e)		offer(e, time, unit)
+
+		remove		remove()			poll()		take()		poll(time, unit)
+
+		examine		element()			peek()		 N/A
+
+
+	BlockingDeque 
+	-------------------
+				(throws exceptions)		
+		insert		add(e)				offer(e)	put(e)		offer(e, time, unit)
+				addFirst(e)			offerFirst(e)   putFirst(e)
+				addLast(e)			offerLast(e)	putLast(e)
+
+		remove		remove()			poll()		take()		poll(time, unit)
+				removeFirst()			pollFirst()	takeFirst()
+				removeLast()			pollLast()	takeLast()
+
+		examine		element()			peek()		N/A
+				getFirst()			peekFirst()
+				getLast()			peekLast()
