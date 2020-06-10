@@ -204,10 +204,75 @@ Static methods in interfaces
 		}
 
 
+Stream API
+------------------------------
+	- used to perform some operations on collections
+	- it supports sequential and parallel operations 
+
+	- every collection class has a method 'stream()' 
+
+		Stream s = listEmp.stream()
+		Stream s = setEmp.stream()
+		Stream s = queueEmp.stream()
+
+	- obtain stream from an array
+		Stream s = Arrays.stream(arr);
+
+	- obtain stream from a file 
+
+		BufferedReader br = new BufferedReader(new FileReader("xxxx.txt"));
+		Stream s = br.lines();
+
+	- Stream
+		- every straem has...
+			- a source i.e. collection, array, an IO channel
+			- zero or more intermediate operations i.e filter, sort, map etc.
+			- terminal operaion i.e. produces some non-stream results i.e. primitive, collection or void 
 
 
+	- Operations 
+		- Intermediate operations
+
+			- filter()
+				- return a new stream that consists elements matching the given condition
+			- map()
+				- return a new stream, consist of elements which are result of applying a given function
+
+				- mapToInt()
+				- mapToLong()
+				- mapToDouble()
+
+			- sorted()
+				- sorted(comparator)
+				- returns a new stream containing sorted elements according to the natural ordering or 					external comparator
+
+			- limit()
+
+			- distinct()
+
+			- skip()
 
 
+		- Terminal operations 
+		--------------------------------
+			-> can return a primitive value (boolean, long, a concrete type, or void)
+			-> eagarly executed, and mostly the last operations on stream
+	
+
+			- allMatch()
+			- anyMatch()
+			- noneMatch()
+			- collect()
+			- count()
+			- min()
+			- max()
+			- average()
+			- reduce()
+			- forEach()
+
+		- Parallel Streams 
+
+				Stream s = list.parallelStream()
 
 
 
