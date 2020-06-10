@@ -1,0 +1,242 @@
+Finishing School
+-----------------
+	Week 1 = Core Java, Collection, thread, concurrent api, exceptions, IO, java8, 
+
+	Memory 
+
+	Internals of JVM
+
+	Implement OOPS concepts in Java Project
+
+	Design Pattern
+
+	Overview on frontend 
+
+
+	Java 8
+	---------------
+		- Lambda Expressions
+		- Functional Programming
+			- Functional Interfaces
+			- Predefined functional interfaces 
+				i.e. Predicate, Function, Consumer, Supplier....				
+		- Default methods in Interfaces
+			- concrete methods in the interface
+		- Static methods in Interfaces
+		- Stream API
+		- Concurrent API
+		- Date & Time API (JODA time api)
+		- NIO API 
+
+
+	Lambda Expressions
+	-------------------------
+		- annoymouse functon (a function without name, return type, access modifer)
+
+
+		public void show(){
+			System.out.println("hello");
+		}
+
+		
+		() -> {
+			System.out.println("hello");
+		}
+
+		() -> System.out.println("hello");
+
+
+
+
+		public int arithAdd(int a, int b){
+			return a+b;
+		}
+
+		(int a, int b) -> a+b;	
+
+		(a, b) -> a+b;
+		
+
+		public int getLength(String str){
+			return str.length();
+		}
+
+
+		(String str) -> str.length();
+
+		(str) -> str.length();
+
+		str -> str.length();
+
+
+	Functional Interfaces
+	---------------------------
+		- any interface that contains a single abstract method is called function interface 
+			i.e. Runnable 	---> public void run()	
+			     Comparable			---> public int compareTo(Object o)
+			     Comparator			---> public int compare(Object o1, Object o2)
+
+		- reduce length of the code i.e. simplfy your programs 
+	
+		interface A {
+		     void xyz();
+		}
+
+		class Demo implements A {
+			public void xyz(){
+				//statements;
+				//statements;
+			}
+		}
+
+		A a = new Demo();
+		a.xyz();
+
+
+		A a = new A(){
+			public void xyz(){
+				//statements;
+				//statements;
+			}
+		};
+		a.xyz();
+
+
+
+
+
+		A a = () -> statements;
+		a.xyz();
+		
+
+	
+Default methods interface
+-------------------------------
+	- concrete methods, by default available to all implementation classes,
+		and also the classes can override it 
+	- default methods are also called defender methods / virtual extention methods
+	- we can add new/additional functionalities, without affecting the implementation classes
+		
+		interface Taxable{
+
+		}
+
+
+		abstract class Product {
+			//common data members
+		}
+
+		class Toy extends Product implements Taxable{
+
+		}
+
+		class Cloths extends Product{
+
+		}
+
+		abstract class Service{
+
+		}
+
+		class DeliveryService extends Service  implements Taxable{
+
+		}
+
+Static methods in interfaces
+------------------------------------
+	- similar to default methods, but we cannot override them
+
+	Predefined functional interfaces
+	--------------------------------------
+
+	1. Predicate
+		- an interface which contains only one abstract method
+		- java.util.function
+
+		- used for conditional checks
+
+			interface Predicate<T>{
+				public boolean test(T t){
+
+				}
+			}
+
+			//validate length of given string 
+			Predicate<String> predicate = (str) -> str.length() >= 6;
+			predicate.test("somevalue");
+			
+			//check whether given collection is empty
+			Predicate<Collection> predicate = (col) -> col.isEmpty();
+			predicate.test(list);
+			predicate.test(set);
+			predicate.test(queue);
+
+
+		Predicate has below default methdos 
+		--------------------------------------
+			and()			
+			or()
+			negate()
+
+
+
+	2. Function
+
+		- Function can return any type of value and can have 1 parameter of any type 
+		- used to perform certain operations & return some result 
+
+		interface Function<T, R>{
+			public R apply(T t);
+		}
+
+		Function<String, Integer> function = (String s) -> s.length();
+
+	3. Consumer
+
+		interface Consumer<T>{
+			void accept(T t);
+		}
+
+	4. Supplier
+
+		interface Supplier<T>{
+			public T get();
+		}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+

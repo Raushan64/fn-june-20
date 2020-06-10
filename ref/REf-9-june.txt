@@ -15,7 +15,7 @@ Finishing School
 
 	Collection
 	---------------------------------
-			   Iterable<T>
+			   Iterable<T>		<---forEach()
 			     |
 			Collection<T> (I)		<<--describes common methods 					
 			     |							
@@ -216,7 +216,7 @@ Finishing School
 
 
 	BlockingDeque 
-	-------------------
+	-------------------	
 				(throws exceptions)		
 		insert		add(e)				offer(e)	put(e)		offer(e, time, unit)
 				addFirst(e)			offerFirst(e)   putFirst(e)
@@ -229,3 +229,69 @@ Finishing School
 		examine		element()			peek()		N/A
 				getFirst()			peekFirst()
 				getLast()			peekLast()
+
+
+
+ 	Map<K,V> interface
+	-------------------------
+		- models collection of key-value pairs 
+
+					Map<K,V> interface
+						|
+						|
+				  --------------------------------------------------------------	
+				  AbstractMap<K,V>				SortedMap<K,V> interface
+				  (abstract class)					|
+					|						|
+					|						|
+			------------------------------------------		NavigableMap<k,V> interface
+			HashTable	HashMap		EnumMap				|
+					  |					     TreeMap<K,V>
+					LinkedHashMap
+
+
+
+
+
+		HashTable		HashMap		ConcurrentHashMap	LinkedHashMap		TreeMap
+
+DS		hashtable		hashtable	hashtable		hashtable+	       	Red-BlackTree												double linkedlist
+
+nullKeys	no			1 nullkey	no			1 nullkey		no	
+
+nullvalues	yes			yes		no			yes			yes	
+
+duplicatekey	no			no		no			no			no
+
+ordering	unordered		unordered	unordered		order by insertion	sorted order 
+
+
+	Map<K,V> interface methods
+	--------------------------------
+		V put(K k, V v)
+
+		V get(K k)
+
+		boolean containsKey(K k)
+
+		boolean containsValue(V v)
+
+		Set<K> keySet()
+
+		Collection<V> values()
+
+		Set<Map.Entry<K,V>> entrySet()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
