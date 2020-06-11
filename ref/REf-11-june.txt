@@ -1,0 +1,169 @@
+Finishing School
+-----------------
+	Week 1 = Core Java, Collection, thread, concurrent api, exceptions, IO, java8, 
+
+	Memory 
+
+	Internals of JVM
+
+	Implement OOPS concepts in Java Project
+
+	Design Pattern
+
+	Overview on frontend 
+
+		- Stream API
+		- Concurrent API
+		- Date & Time API (JODA time api)
+		- NIO API 
+
+
+	
+		- Terminal operations 
+		--------------------------------
+			-> can return a primitive value (boolean, long, a concrete type, or void)
+			-> eagarly executed, and mostly the last operations on stream
+	
+
+			- allMatch(Predicate)
+				- returns true if all elements match the given predicate 
+
+			- anyMatch(Predicate)
+			- noneMatch(Predicate)
+
+			- collect()
+				- accumulates elements in the stream into a container i.e. Collection 	
+
+			- count()
+			- min()
+			- max()
+			- average()
+			- forEach()
+ 			
+			- reduce()
+
+
+
+		- Concurrent API
+		-------------------------
+
+			- Thread Class 
+				- represents a unit of execution 
+			- Runnable interface 
+				- represents a task that can be executed by a thread 
+
+
+			- Concurrent API is designed to help deveopers to easily implement complex multithreaded tasks 
+
+			- java.util.concurrent 
+				- provides common utility classes for concurrent programming 
+					i.e. Executors, thread pool management, scheduled tasks execution, concurrent 						collections
+			- java.util.concurrent.locks
+				- provides Lock and Condition implementions, more advanced synchronization mechanism 
+
+			- java.util.concurrent.atomic 
+				- AtomicInteger
+
+
+		**=> execute tasks by multiple thread that are managed by thread pool
+			i.e. Executor
+
+		**=> execute tasks sequentially  one after another 
+
+		**=> Running a task that computes a value (Callable) and waiting for the result (Future)
+			i.e. ExecutorService 
+
+		**=> schedule a task to be executed after given delay, or to be executed periodically at a fixed rate or 				fixed delay i.e. ScheduleExecutorService 
+
+
+
+	Thread Pool
+	------------------
+		- instead of creating new threads every time for new tasks, we can use a thread pool
+		- thread pool will keep a number of threads idle and ready for executing your tasks 
+			once a thread from the pool executes a task, it doesnt die, instead it remains idle
+
+
+	Executor
+	--------------
+		- Executor object is responsible to manage and execute Runnable tasks 
+		- Executor is superinterface of all the executors 
+
+			interface Executor{
+				execute(Runnable)
+			}
+
+			Executor executor = anyImplementationofExecutor 
+
+			executor.execute(task1);
+			executor.execute(task2);
+		
+	ExecutorService
+	--------------
+		- allows tracking progress of value-returning tasks (Callable) via Future object
+		- also manages termination of threads
+
+			Future<T> submit(Callable<T> task)
+			shutdown()
+		
+	ScheduledExecutorService 
+	-------------------------------
+			schedule()
+			scheduleAtFixedRate()
+			scheduleAtFixedDelay()
+
+	How to Create an Executor
+	-------------------
+		- several factory methods provided by Executors (utility class )
+
+			newFixedThreadPool(int n)
+				- creates an executor with fixed number of threads 
+
+			newSingleThreadPool()
+				- creates an executor that executes a single task at a time 
+
+			newCachedThreadPool()
+				- creates an executor (expandable executor), which creates threads as needed 
+
+			newScheduledThreadPool(int poolsize)
+				- creates an executor which executes the task after given delay, or periodically
+				- schedule multiple tasks to be executed after given delay, or periodically 
+
+			newSingleThreadScheduleExecutor()
+				- creates an executor which executes the task after given delay, or periodically	
+			
+
+
+	Runnable 
+	---------------
+		- represents a task that do not return any value
+
+	Future
+	----------
+		- waits for the value returning task
+
+			interface Future<T>{
+				T get();
+				T get(long timeout, TimeUnit unit);
+			}
+
+	Callable
+	--------------
+		- represents a task that computes and returns some value 
+
+			interface Callable<T> {
+				public T call();
+			}
+
+			Callable<Integer> task = task that returns an integer value 
+
+
+
+
+
+
+
+
+
+
+
