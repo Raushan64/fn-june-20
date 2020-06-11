@@ -12,7 +12,11 @@ Finishing School
 
 	Overview on frontend 
 
-	DeadLock, LiveLock, starvation
+	DeadLock, LiveLock, starvation, Race Condition
+
+	Serialization 
+
+	Lazy loading / Lazy Initialization 
 
 		- Stream API
 		- Concurrent API
