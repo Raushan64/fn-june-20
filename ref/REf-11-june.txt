@@ -12,6 +12,8 @@ Finishing School
 
 	Overview on frontend 
 
+	DeadLock, LiveLock, starvation
+
 		- Stream API
 		- Concurrent API
 		- Date & Time API (JODA time api)
@@ -156,9 +158,23 @@ Finishing School
 			}
 
 			Callable<Integer> task = task that returns an integer value 
+	
+
+	Dobule colon operator
+	--------------------------
+
+		- method reference 
 
 
-
+	Date & Time API
+	---------------------
+		- LocalDate
+		- LocalTime
+		- LocalDateTime
+		- ZoneId
+		- ZonedDateTime
+		- Period (operations on date)
+		- Duration (operations on time)
 
 
 
